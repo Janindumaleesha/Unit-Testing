@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using UnitTestDemo.Services;
 
 namespace UnitTestingDemo.Tests
@@ -27,6 +26,53 @@ namespace UnitTestingDemo.Tests
             //Assert.Equal(expectedValue, actualValue, ignoreCase: true);
             //Assert.Contains(expectedValue, actualValue, StringComparison.CurrentCultureIgnoreCase);
             Assert.Matches(new Regex("^[A-Za-z]+( [A-Za-z]+)*$"), actualValue);
+        }
+
+        [Fact]
+        public void ShouldFullNAmeBeNotNull()
+        {
+            // Given
+            var studentService = new StudentService();
+            string randomStringA = "Janindu";
+            string randomStringB = "Maleesha";
+
+            // When
+            string actualValue = studentService.GetFullName(randomStringA, randomStringB);
+
+            // Then
+            Assert.NotNull(actualValue);
+        }
+
+        [Fact]
+        public void ShouldPassTheExamWithPassMark()
+        {
+            // Given
+            var studentService = new StudentService();
+            int randomMarkA = 77;
+            //bool expectedValue = true;
+
+            // When
+            var actualValue = studentService.IsPassedTheExam(randomMarkA);
+
+            // Then
+            //Assert.True(expectedValue = actualValue);
+            Assert.True(actualValue);
+        }
+
+        [Fact]
+        public void ShouldFailTheExamWithFailMark()
+        {
+            // Given
+            var studentService = new StudentService();
+            int randomMarkB = 45;
+            //bool expectedValue = false;
+
+            // When
+            var actualValue = studentService.IsPassedTheExam(randomMarkB);
+
+            // Then
+            //Assert.False(expectedValue = actualValue);
+            Assert.False(actualValue);
         }
     }
 }
