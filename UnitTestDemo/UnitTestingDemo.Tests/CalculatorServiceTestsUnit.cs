@@ -43,5 +43,36 @@ namespace UnitTestingDemo.Tests
             // Then
             Assert.Equal(expectedValue, actualVales, 2);
         }
+
+        [Fact]
+        public void ShouldNotContainZero()
+        {
+            // Given
+            var calService = new CalculatorService();
+
+
+            // When
+            var actualValue = calService.GetListOfNumbers();
+
+
+            // Then
+            //Assert.All(actualValue, n => Assert.NotEqual(0, n));
+            Assert.DoesNotContain(0, actualValue);
+
+        }
+
+        [Fact]
+        public void ShouldBeContain87()
+        {
+            // Given
+            var calService = new CalculatorService();
+            int expectedValue = 87;
+
+            // When
+            var actualValue = calService.GetListOfNumbers();
+
+            // Then
+            Assert.Contains(expectedValue, actualValue);
+        }
     }
 }
