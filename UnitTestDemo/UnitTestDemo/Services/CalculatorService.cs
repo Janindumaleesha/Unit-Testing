@@ -6,5 +6,10 @@
         {
             return x + y;
         }
+
+        public double AddTwoDoubles(double x, double y)
+        {
+            return x + y;
+        }
     }
 }
