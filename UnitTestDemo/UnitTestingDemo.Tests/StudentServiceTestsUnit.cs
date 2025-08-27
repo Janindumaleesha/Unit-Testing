@@ -91,5 +91,35 @@ namespace UnitTestingDemo.Tests
 
             Assert.Equal(expectedMessage, exceptionDetails.Message);
         }
+
+        [Fact]
+        public void ShouldBeACSharpStudent()
+        {
+            // Given
+            var studentService = new StudentService();
+            int StudentCourseId = 100;
+
+            // When
+            var actualValueType = studentService.GetStudentByCourseId(StudentCourseId);
+
+            // Then
+            //Assert.IsType(typeof(CSharpStudent), actualValueType);
+            Assert.IsType<CSharpStudent>(actualValueType);
+        }
+
+        [Fact]
+        public void ShouldBeAJavaStudent()
+        {
+            // Given
+            var studentService = new StudentService();
+            int StudentCourseId = 200;
+
+            // When
+            var actualValueType = studentService.GetStudentByCourseId(StudentCourseId);
+
+            // Then
+            //Assert.IsType(typeof(JavaStudent), actualValueType);
+            Assert.IsType<JavaStudent>(actualValueType);
+        }
     }
 }
