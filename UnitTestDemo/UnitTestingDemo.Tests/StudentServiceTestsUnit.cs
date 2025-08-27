@@ -74,5 +74,22 @@ namespace UnitTestingDemo.Tests
             //Assert.False(expectedValue = actualValue);
             Assert.False(actualValue);
         }
+
+        [Fact]
+        public void EmailShouldNotBeNullOrEmpty()
+        {
+            // Given
+            var studentService = new StudentService();
+            string randomEmptyEmail = string.Empty;
+            string expectedMessage = "Email Should Be Required";
+
+            // When
+
+
+            // Then
+            var exceptionDetails = Assert.Throws<ArgumentException>(() => studentService.GetStudentId(randomEmptyEmail));
+
+            Assert.Equal(expectedMessage, exceptionDetails.Message);
+        }
     }
 }
