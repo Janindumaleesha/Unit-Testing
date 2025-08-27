@@ -18,5 +18,15 @@
                 return false; 
             }
         }
+
+        public int GetStudentId(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                throw new ArgumentException("Email Should Be Required");
+            }
+
+            return 10;
+        }
     }
 }
