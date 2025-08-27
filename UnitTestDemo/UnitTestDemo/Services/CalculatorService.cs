@@ -18,5 +18,15 @@
 
             return numbers;
         }
+
+        public bool IsOddNumber(int number)
+        {
+            if (number % 2 == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

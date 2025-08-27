@@ -74,5 +74,22 @@ namespace UnitTestingDemo.Tests
             // Then
             Assert.Contains(expectedValue, actualValue);
         }
+
+        [Theory]
+        [InlineData(1, true)]
+        [InlineData(4, false)]
+        [InlineData(100, false)]
+        [InlineData(77, true)]
+        public void ShouldTestForOddOrEvenNumber(int value, bool expectedValue)
+        {
+            // Given
+            var calService = new CalculatorService();
+
+            // When
+            var actualValue = calService.IsOddNumber(value);
+
+            // Then
+            Assert.Equal(expectedValue, actualValue);
+        }
     }
 }
